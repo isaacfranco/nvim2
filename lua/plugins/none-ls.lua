@@ -11,7 +11,7 @@ return {
         -- some sources are on none-ls-extas and should be required intead of using through builtins
         null_ls.setup({
             sources = {
---                require("none-ls.diagnostics.eslint_d"),
+                require("none-ls.diagnostics.eslint_d"),
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.diagnostics.rubocop,
                 null_ls.builtins.formatting.rubocop,
