@@ -15,19 +15,20 @@ return {
         opts = {
             auto_install = true,
         },
-        --config = function()
-        --    require("mason-lspconfig").setup({
-        --        -- availability on https://github.com/williamboman/mason-lspconfig.nvim
-        --        -- only lsps. no formatters (for example) can be ensured intalled here
-        --        ensure_installed = {
-        --            "lua_ls",
-        --            "tsserver",
-        --            "html",
-        --            --"eslint",
-        --            --"biome",
-        --        },
-        --    })
-        --end,
+        config = function()
+            require("mason-lspconfig").setup({
+                -- availability on https://github.com/williamboman/mason-lspconfig.nvim
+                -- only lsps. no formatters (for example) can be ensured intalled here
+                ensure_installed = {
+                    "lua_ls",
+                    "tsserver",
+                    "html",
+                    "svelte"
+                    --"eslint",
+                    --"biome",
+                },
+            })
+        end,
     },
     {
         -- nvim-lspconfig (https://github.com/neovim/nvim-lspconfig)
@@ -52,6 +53,10 @@ return {
             lspconfig.html.setup({
                 capabilities = capabilities,
             })
+            
+            lspconfig.svelte.setup({
+                capabilities = capabilities,
+            })
 
             --lspconfig.biome.setup({})
 
@@ -60,7 +65,7 @@ return {
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+            vim.keymap.set("n", "<C-M>", vim.lsp.buf.signature_help, opts)
             vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
             vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
             vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
