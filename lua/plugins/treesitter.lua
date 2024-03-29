@@ -4,7 +4,7 @@ return {
     config = function()
         local config = require("nvim-treesitter.configs")
         config.setup({
-            ensure_installed = { "lua", "javascript", "http", "xml", "graphql", "json" },
+            ensure_installed = { "lua", "javascript", "http", "xml", "graphql", "json", "html" },
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
