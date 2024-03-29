@@ -24,6 +24,7 @@ return {
                     "tsserver",
                     "html",
                     "svelte"
+                    "docker"
                     --"eslint",
                     --"biome",
                 },
